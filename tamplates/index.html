@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Biblioteca</h1>
+    </header>
+
+    <section class="livros">
+        <h2>Livros Disponíveis</h2>
+        <ul>
+            {% for livro in livros %}
+                <li>
+                    <strong>{{ livro[1] }}</strong>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="emprestimos">
+        <h2>Empréstimos</h2>
+        <ul>
+            {% for emprestimo in emprestimos %}
+                <li>
+                    <strong>Usuário ID: {{ emprestimo[1] }}</strong> - Livro ID: {{ emprestimo[2] }} - Data de Empréstimo: {{ emprestimo[3] }} - Data de Devolução: {{ emprestimo[4] }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="regist
